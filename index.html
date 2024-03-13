@@ -144,18 +144,27 @@
   <div class="hero-body">
     <div class="container">
       <div class="column is-centered has-text-centered">
-        <h2 class="title is-3">Model Architecture</h2>
-        <img src="static/images/Model.png" alt="cars peace"/>
+        <h2 class="title is-3">Novelty</h2>
+        <img src="static/images/READ.png" alt="cars peace"/>
       </div>
        <p>
-        <b>Novelty of our model: </b>  
-        To evaluate the consistency (task achievability) between the image and the motion, we propose Spatially-Aligned Temporal Encoding to seamlessly integrate the image and motion data into the image feature domain.
-        Typically, all of the image and motion feature vectors are fed into the Transformer to fuse these features.
-        However, it contains many redundant features, such as those of the background, which are less useful for evaluating consistency properly. 
-        Our method solves this problem by extracting only meaningful features from the image feature map. 
-        Based on the idea that the most meaningful features are located along the motion trajectory, we spatially align the motion trajectory to the image plane and extract the features along it. 
-        We then concatenate the extracted image and motion features to associate them. 
-        Since our motion features contain the aligned position and time step information, this encoding can be regarded as spatially-aligned temporal encoding.
+        <b>Retrieval Enhancement: </b>  
+        Typical stochastic diffusion-based motion planning methods generate motions by running reverse diffusion from a random (e.g., Gaussian) sample, which may result in motion that is infeasible and/or does not reach the goal (e.g., DDPM). 
+        Retrieval-based methods use a diffusion process to refine a candidate (retrieved) motion that is assumed to be near the target motion. 
+        However, prior retrieval-based methods employ forward diffusion to move towards the zero-mean Gaussian and then refine the motion towards the target, resulting in a longer, roundabout path. 
+        Instead, READ performs diffusion directly from the retrieved motion to the target.
+       </p>
+       <br>
+       <p>
+        <b>Latent space interpolation: </b>  
+        Forward diffusion has difficulty in preserving the feasibility of the motion in the original high-dimensional task space. 
+        To enhance the retrieved motion, READ instead performs forward diffusion by interpolation in a latent space in which the semantics of the motion, including feasibility, are preserved.
+       </p>
+       <br>
+       <p>
+        <b>Asymmetric diffusion: </b>  
+        While the latent space supports the generation of feasible motions, the lower dimensionality makes it difficult to model high-resolution motions such as those needed for manipulation. 
+        To address this, we propose asymmetric diffusion that performs the forward process in the latent space and the reverse process in the original space to achieve high-resolution refinement.
        </p>
   </div>
 </div>
