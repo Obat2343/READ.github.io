@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+	content="READ: Retrieval-Enhanced Asymmetric Diffusion for Motion Planning">
+  <meta name="keywords" content="Motion Planning, Learning from demonstration, Retrieval, Diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>READ: Retrieval-Enhanced Asymmetric Diffusion for Motion Planning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Data-Driven Stochastic Motion Evaluation and Optimization with Image by <br> Spatially-Aligned Temporal Encoding <br> (ICRA 2023)</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://obat2343.wixsite.com/my-site">Takeru Oba</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/">Norimichi Ukita</a><sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Toyota Technological Institute,</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. 
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              -->
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2302.05041.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Obat2343/DMOEBM"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="item">
+          <p style="margin-bottom: 30px">
+
+        <video id="teaser" controls height="100%">
+        <source src="./static/videos/explain.mp4"
+                type="video/mp4">
+        </video>
+        Sound will be played, so pay attention to volume.
+        </p>
+        </div>
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper proposes a probabilistic motion prediction method for long motions.
+            The motion is predicted so that it accomplishes a task from the initial state observed in the given image.
+            While our method evaluates the task achievability by the Energy-Based Model (EBM), previous EBMs are not designed for evaluating the consistency between different domains (i.e., image and motion in our method).
+            Our method seamlessly integrates the image and motion data into the image feature domain by spatially-aligned temporal encoding so that features are extracted along the motion trajectory projected onto the image.
+            Furthermore, this paper also proposes a data-driven motion optimization method, Deep Motion Optimizer (DMO), that works with EBM for motion prediction.
+            Different from previous gradient-based optimizers, our self-supervised DMO alleviates the difficulty of hyper-parameter tuning to avoid local minima.
+            The effectiveness of the proposed method is demonstrated with a variety of experiments with similar SOTA methods.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="column is-centered has-text-centered">
+        <h2 class="title is-3">Model Architecture</h2>
+        <img src="static/images/Model.png" alt="cars peace"/>
+      </div>
+       <p>
+        <b>Novelty of our model: </b>  
+        To evaluate the consistency (task achievability) between the image and the motion, we propose Spatially-Aligned Temporal Encoding to seamlessly integrate the image and motion data into the image feature domain.
+        Typically, all of the image and motion feature vectors are fed into the Transformer to fuse these features.
+        However, it contains many redundant features, such as those of the background, which are less useful for evaluating consistency properly. 
+        Our method solves this problem by extracting only meaningful features from the image feature map. 
+        Based on the idea that the most meaningful features are located along the motion trajectory, we spatially align the motion trajectory to the image plane and extract the features along it. 
+        We then concatenate the extracted image and motion features to associate them. 
+        Since our motion features contain the aligned position and time step information, this encoding can be regarded as spatially-aligned temporal encoding.
+       </p>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="column is-centered has-text-centered">
+        <h2 class="title is-3">Results</h2>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="column is-centered has-text-centered">
+      	<p><b> “Pick Up Cup”</b></p>
+          <video poster="" id="tree" autoplay controls muted loop height="150%">
+            <source src="./static/videos/PC.mp4"
+              type="video/mp4">
+          </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+      	<p><b> “Put Rubbish In Bin”</b></p>
+          <video poster="" id="tree" autoplay controls muted loop height="150%">
+            <source src="./static/videos/PR.mp4"
+              type="video/mp4">
+          </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+      	<p><b> “Put Umbrella In UmbrellaStand”</b></p>
+          <video poster="" id="tree" autoplay controls muted loop height="150%">
+            <source src="./static/videos/PU.mp4"
+              type="video/mp4">
+          </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+      	<p><b> “Take Plate Off Colored DishRack”</b></p>
+          <video poster="" id="tree" autoplay controls muted loop height="150%">
+            <source src="./static/videos/TP.mp4"
+              type="video/mp4">
+          </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+      	<p><b> “Close Box”</b></p>
+          <video poster="" id="tree" autoplay controls muted loop height="150%">
+            <source src="./static/videos/CB.mp4"
+              type="video/mp4">
+          </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+      	<p><b> “Push Button”</b></p>
+          <video poster="" id="tree" autoplay controls muted loop height="150%">
+            <source src="./static/videos/PB.mp4"
+              type="video/mp4">
+          </video>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{oba2023data,
+      author={Oba, Takeru and Ukita, Norimichi},
+      title={Data-Driven Stochastic Motion Evaluation and Optimization with Image by Spatially-Aligned Temporal Encoding},
+      journal={arXiv preprint arXiv:2302.05041},
+      year={2023}
+    }</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+          Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+        <p>
+          Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+          href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
