@@ -47,16 +47,22 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Data-Driven Stochastic Motion Evaluation and Optimization with Image by <br> Spatially-Aligned Temporal Encoding <br> (ICRA 2023)</h1>
+          <h1 class="title is-1 publication-title">READ: Retrieval-Enhanced Asymmetric Diffusion for Motion Planning <br> (CVPR 2024)</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://obat2343.wixsite.com/my-site">Takeru Oba</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://home.ttic.edu/~mwalter/">Matthew Walter</a><sup>2</sup>,</span>
             <span class="author-block">
               <a href="https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/">Norimichi Ukita</a><sup>1</sup>,</span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Toyota Technological Institute,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>2</sup>Toyota Technological Institute at Chicago,</span>
           </div>
 
           <div class="column has-text-centered">
@@ -72,7 +78,7 @@
                 </a>
               </span>
               -->
-              <!-- arXiv Link. -->
+              <!-- arXiv Link.
               <span class="link-block">
                 <a href="https://arxiv.org/pdf/2302.05041.pdf"
                    class="external-link button is-normal is-rounded is-dark">
@@ -82,9 +88,10 @@
                   <span>arXiv</span>
                 </a>
               </span>
+              -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/Obat2343/DMOEBM"
+                <a href="https://github.com/Obat2343/READ"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -106,6 +113,7 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+        <!-- Video.
         <div class="item">
           <p style="margin-bottom: 30px">
 
@@ -114,18 +122,16 @@
                 type="video/mp4">
         </video>
         Sound will be played, so pay attention to volume.
-        </p>
+          </p>
         </div>
+        -->
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            This paper proposes a probabilistic motion prediction method for long motions.
-            The motion is predicted so that it accomplishes a task from the initial state observed in the given image.
-            While our method evaluates the task achievability by the Energy-Based Model (EBM), previous EBMs are not designed for evaluating the consistency between different domains (i.e., image and motion in our method).
-            Our method seamlessly integrates the image and motion data into the image feature domain by spatially-aligned temporal encoding so that features are extracted along the motion trajectory projected onto the image.
-            Furthermore, this paper also proposes a data-driven motion optimization method, Deep Motion Optimizer (DMO), that works with EBM for motion prediction.
-            Different from previous gradient-based optimizers, our self-supervised DMO alleviates the difficulty of hyper-parameter tuning to avoid local minima.
-            The effectiveness of the proposed method is demonstrated with a variety of experiments with similar SOTA methods.
+            This paper proposes Retrieval-Enhanced Asymmetric Diffusion (READ) for image-based robot motion planning. Given an image of the scene, READ retrieves an initial motion from a database of image-motion pairs, and uses a diffusion model to refine the motion for the given scene.
+            Unlike prior retrieval-based diffusion models that require long forward-reverse diffusion paths, READ directly diffuses between the source (retrieved) and target motions, resulting in an efficient diffusion path.
+            A second contribution of READ is its use of asymmetric diffusion, whereby it preserves the kinematic feasibility of the generated motion by forward diffusion in a low-dimensional latent space, while achieving high-resolution motion by reverse diffusion in the original task space using cold diffusion. 
+            Experimental results on various manipulation tasks demonstrate that READ outperforms state-of-the-art planning methods, while ablation studies elucidate the contributions of asymmetric diffusion.
           </p>
         </div>
       </div>
